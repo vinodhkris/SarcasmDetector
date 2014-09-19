@@ -13,7 +13,7 @@ First off we start by implementing this Sarcasm paper that uses context from EMN
 2. Adding positive predicates.  
 3. Implementing SVM with unigram and bigram features, so that we can plug in both of them.  
 
-The code for the first 2 phases can be found at SaracasmDetector-Part1 folder in the current git repo. The recall achieved was 9.7 and the Precision was 72.4. We used SVM with a multitude of features (unigram, bigram, author, tweet length, etc) to increase the recall and achieve a fmeasure of 62, which is better than that proposed by the paper. 
+The code for the first 2 phases can be found at SaracasmDetector-Part1 folder in the current git repo. The recall achieved was 9.7 and the Precision was 72.4. We used SVM with a multitude of features (unigram, bigram, author, tweet length, etc) to increase the recall and achieve a fmeasure of 0.57, which is better than that proposed by the paper. 
 
 
 
