@@ -249,10 +249,13 @@ def extractPredicates(negative_seed_word, inputFile)	:
 						if posTags[num][pos] == "A":
 							unigram.append(line.split()[pos])
 				
-						if (posTags[num][pos] == "A" and posTags[num][pos+1] == "R") or (posTags[num][pos] == "R" and posTags[num][pos+1] == "A") or (posTags[num][pos] == "A" and posTags[num][pos+1] == "N"):
+						if (posTags[num][pos] == "A" and posTags[num][pos+1] == "R") or 
+						(posTags[num][pos] == "R" and posTags[num][pos+1] == "A") or 
+						(posTags[num][pos] == "A" and posTags[num][pos+1] == "N"):
 							bigram.append(line.split()[pos]+" "+line.split()[pos+1])
 				
-						if (posTags[num][pos] == "R" and posTags[num][pos] == "A" and posTags[num][pos] == "N") or (posTags[num][pos] == "D" and posTags[num][pos] == "A" and posTags[num][pos] == "N"):
+						if (posTags[num][pos] == "R" and posTags[num][pos+1] == "A" and posTags[num][pos+2] == "N") or 
+								(posTags[num][pos] == "D" and posTags[num][pos+1] == "A" and posTags[num][pos+2] == "N"):
 							trigram.append(line.split()[pos]+" "+line.split()[pos+1]+" "+line.split()[pos+2])
 
 		num+=1
