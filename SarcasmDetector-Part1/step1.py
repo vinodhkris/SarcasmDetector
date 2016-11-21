@@ -85,7 +85,7 @@ def extractWordPos(word, line,after):
 
 def posTagsPresent(posTags, num, pos, inputFile):
 	for line in inputFile:
-		if (posTags[num][pos] == line.split()[0]) and (posTags[num][pos] == line.split()[1]) and (posTags[num][pos] == line.split()[2]):
+		if (posTags[num][pos] == line.split()[0]) and (posTags[num][pos+1] == line.split()[1]) and (posTags[num][pos+2] == line.split()[2]):
 			return True
 	return False
 
@@ -106,7 +106,7 @@ def extractngramspos(inputFile,seed_word):
 			if posTags[num][pos] == "V":
 				unigram.append(line.split()[pos]) 
 			try:
-				if (posTags[num][pos] == "V" and posTags[num][pos+1] == "V") or (posTags[num][pos] == "V" and posTags[num][pos+1] == "R") or (posTags[num][pos] == "R" and posTags[num][pos+1] == "V") or (word == "to" and posTags[num][pos+1] == "V") or (posTags[num][pos] == "V" and posTags[num][pos+1] == "N") or (posTags[num][pos] == "V" and posTags[num][pos+1] == "A") or (posTags[num][pos] == "V" and posTags[num][pos+1] == "O") :
+				if (posTags[num][pos] == "V" and posTags[num][pos+1] == "V") or (posTags[num][pos] == "V" and posTags[num][pos+1] == "R") or (posTags[num][pos] == "R" and posTags[num][pos+1] == "V") or (posTags[num][pos] == "to" and posTags[num][pos+1] == "V") or (posTags[num][pos] == "V" and posTags[num][pos+1] == "N") or (posTags[num][pos] == "V" and posTags[num][pos+1] == "A") or (posTags[num][pos] == "V" and posTags[num][pos+1] == "O") :
 					bigram.append(line.split()[pos]+ " "+line.split()[pos+1])
 			except:
 				asdf = 0
@@ -249,12 +249,12 @@ def extractPredicates(negative_seed_word, inputFile)	:
 						if posTags[num][pos] == "A":
 							unigram.append(line.split()[pos])
 				
-						if (posTags[num][pos] == "A" and posTags[num][pos+1] == "R") or 
-						(posTags[num][pos] == "R" and posTags[num][pos+1] == "A") or 
+						if (posTags[num][pos] == "A" and posTags[num][pos+1] == "R") or \
+						(posTags[num][pos] == "R" and posTags[num][pos+1] == "A") or \
 						(posTags[num][pos] == "A" and posTags[num][pos+1] == "N"):
 							bigram.append(line.split()[pos]+" "+line.split()[pos+1])
 				
-						if (posTags[num][pos] == "R" and posTags[num][pos+1] == "A" and posTags[num][pos+2] == "N") or 
+						if (posTags[num][pos] == "R" and posTags[num][pos+1] == "A" and posTags[num][pos+2] == "N") or \
 								(posTags[num][pos] == "D" and posTags[num][pos+1] == "A" and posTags[num][pos+2] == "N"):
 							trigram.append(line.split()[pos]+" "+line.split()[pos+1]+" "+line.split()[pos+2])
 
